@@ -36,3 +36,12 @@ python3 app.py
 ## Finite State Machine
 ![fsm](./show-fsm.png)
 
+## 使用方式
+1.先選擇想要看的星座分析種類(每日 VS 年度)
+2.選擇星座
+
+## 說明
+1.每日星座運勢是直接去爬網路上的星座運勢分析所以會每天更新(爬蟲程式在parse.py)
+2.爬蟲是使用beautifulsoup的API
+3.年度的星座運勢是寫死的文字敘述(內容在text_all.py)
+4.原本有divination state可是來不及做完
