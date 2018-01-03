@@ -1,4 +1,5 @@
 from transitions.extensions import GraphMachine
+from all_text import detail
 
 import sys
 from io import BytesIO
@@ -58,7 +59,7 @@ class TocMachine(GraphMachine):
 
     def on_enter_divination(self, update):
         update.message.reply_text("I'm entering state2")
-        #self.go_back(update)
+        self.go_back(update)
 
     def on_exit_divination(self, update):
         print('Leaving state2')
@@ -81,8 +82,80 @@ class TocMachine(GraphMachine):
     def on_enter_2018query(self, update):
         text = update.message.text
         if text == '1':
-            update.message.reply_text("  2018 年裡歲星來到了羊座疾厄宮，可以預料這一年裡運勢變化精采無比，當中不乏好運與壞運的逆轉，有機會柳暗花明，在最需要的時候得到好運。\n  獨立經營事業當頭家的，考驗中能讓生意蒸蒸日上，能開創新的契機；固定受薪族的變化較不明顯，但作為核心幕僚的人，今年表現不俗，能蒙受多位貴人提攜。得特別注意八月火星逆入魔羯宮帶來的情緒問題。感情變化上半年多冷靜下半年多險阻，考驗著彼此的信念，如果過於患得患失則很可能有一波三折的走向。") 
-        elif text == '2':  
-            update.message.reply_text("金牛們在新的一年裡很可能從本來就事論事、實事求是的理性腦，一下子轉身成了風花雪月的浪漫腦，任何事都可能觸動你的愁緒，遠在異鄉打拼的人會有遇見故知的機緣，單身者特別容易感到孤單，上半年波折較多的反倒能在下半年苦盡甘來，2018 整體來說感情上夠你折騰，但相對也能嘗到愈發甜美的果實。")
-            update.message.reply_text("工作上表現平盤，雖然暗藏凶險，但大都能化險為夷，比起做事，職場中的牛座更要學著靈活彈性的做人")
+            show_text = detail('Aries','1')
+            update.message.reply_text(show_text)
+            show_text = detail('Aries','2')
+            update.message.reply_text(show_text)
+            show_text = detail('Aries','3')
+            update.message.reply_text(show_text)
+
+        elif text == '2': 
+            show_text = detail('Taurus','1')
+            update.message.reply_text(show_text) 
+            show_text = detail('Taurus','2')
+            update.message.reply_text(show_text)
+            show_text = detail('Taurus','3')
+            update.message.reply_text(show_text)
+        elif text == '3':
+            show_text = detail('Gemini','1')
+            update.message.reply_text(show_text)
+            show_text = detail('Gemini','2')
+            update.message.reply_text(show_text)
+            show_text = detail('Gemini','3')
+            update.message.reply_text(show_text)
+        elif text == '4':
+            show_text = detail('Cancer','1')
+            update.message.reply_text(show_text)
+            show_text = detail('Cancer','2')
+            update.message.reply_text(show_text)
+            show_text = detail('Cancer','3')
+            update.message.reply_text(show_text)
+        elif text == '5':
+            show_text = detail('Leo','1')
+            update.message.reply_text(show_text)
+            show_text = detail('Leo','2')
+            update.message.reply_text(show_text)
+        elif text == '6':
+            show_text = detail('Virgo','1')
+            update.message.reply_text(show_text)
+            show_text = detail('Virgo','2')
+            update.message.reply_text(show_text)
+        elif text == '7':            
+            show_text = detail('Libra','1')
+            update.message.reply_text(show_text)
+            show_text = detail('Libra','2')
+            update.message.reply_text(show_text)
+        elif text == '8':
+            show_text = detail('Scorpio','1')
+            update.message.reply_text(show_text)
+            show_text = detail('Scorpio','2')
+            update.message.reply_text(show_text)
+        elif text == '9':
+            show_text = detail('Sag','1')
+            update.message.reply_text(show_text)
+            show_text = detail('Sag','2')
+            update.message.reply_text(show_text)
+            show_text = detail('Sag','3')
+            update.message.reply_text(show_text)
+        elif text == '10':
+            show_text = detail('Cap','1')
+            update.message.reply_text(show_text)
+            show_text = detail('Cap','2')
+            update.message.reply_text(show_text)
+            show_text = detail('Cap','3')
+            update.message.reply_text(show_text)
+        elif text == '11':
+            show_text = detail('Aquarius','1')
+            update.message.reply_text(show_text)
+            show_text = detail('Aquarius','2')
+            update.message.reply_text(show_text)
+            show_text = detail('Aquarius','3')
+            update.message.reply_text(show_text)
+        elif text == '12':
+            show_text = detail('Pisces','1')
+            update.message.reply_text(show_text)
+            show_text = detail('Pisces','2')
+            update.message.reply_text(show_text)
+            show_text = detail('Pisces','3')
+            update.message.reply_text(show_text)
         self.go_back(update)
