@@ -7,8 +7,8 @@ from flask import Flask, request, send_file
 from fsm import TocMachine
 
 
-API_TOKEN = '488687337:AAEcNRyjTGlYzBV8Kc9ozKei2YW-SA6TibI'
-WEBHOOK_URL = 'https://76d4266d.ngrok.io/hook'
+API_TOKEN = '491916172:AAFmAKK7qOpFfiHbJ5yNHFCK60Y58tCmUn8'
+WEBHOOK_URL ='https://d0181d9c.ngrok.io/hook'
 
 app = Flask(__name__)
 bot = telegram.Bot(token=API_TOKEN)
@@ -16,6 +16,7 @@ machine = TocMachine(
     states=[
         'which',
         'horoscope',
+        'horoquery',
         'divination',
         '2018',
         '2018query'
@@ -33,6 +34,13 @@ machine = TocMachine(
             'dest': 'horoscope',
             'conditions': 'is_going_to_horoscope'
         },
+        {
+            'trigger': 'advance',
+            'source': 'horoscope',
+            'dest': 'horoquery',
+            'conditions': 'is_going_to_horoquery'
+        },
+
         {
             'trigger': 'advance',
             'source': 'which',
@@ -57,7 +65,8 @@ machine = TocMachine(
             'source': [
                 'horoscope',
                 'divination',
-                '2018query'
+                '2018query',
+                'horoquery'
             ],
             'dest': 'which'
         }
